@@ -19,7 +19,7 @@ public class Lista {
     }
     // esta es la prueba de que si sirve el github
     // esta es la segunda prueba 8=D
-    // Este es un comentario xd
+    // Este es un comentario xd h
     public boolean vacia() {
         if (inicio == null) {
             return true;
