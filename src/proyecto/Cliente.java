@@ -9,19 +9,17 @@ package proyecto;
  * @author ricar_t6uqtj3
  */
 public class Cliente {
-    private String nombre,apellidos,  email, dirección,
-tipoPlan;
-    private byte edad, numcontacto;
-    
-    public Cliente(){
-        this.nombre="";
-         this.apellidos="";
-          this.edad=0;
-           this.numcontacto=0;
-            
-             this.dirección="";
-              this.tipoPlan="";
-              
+
+    private String nombre, apellidos,
+            numcontacto;
+    private int edad;
+
+    public Cliente() {
+        this.nombre = "";
+        this.apellidos = "";
+        this.edad = 0;
+        this.numcontacto = "";
+
     }
 
     public String getNombre() {
@@ -40,44 +38,20 @@ tipoPlan;
         this.apellidos = apellidos;
     }
 
-    public byte getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(byte edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public byte getNumcontacto() {
+    public String getNumcontacto() {
         return numcontacto;
     }
 
-    public void setNumcontacto(byte numcontacto) {
+    public void setNumcontacto(String numcontacto) {
         this.numcontacto = numcontacto;
     }
 
-    public String getDirección() {
-        return dirección;
-    }
-
-    public void setDirección(String dirección) {
-        this.dirección = dirección;
-    }
-
-    public String getTipoPlan() {
-        return tipoPlan;
-    }
-
-    public void setTipoPlan(String tipoPlan) {
-        this.tipoPlan = tipoPlan;
-    }
-    
 }

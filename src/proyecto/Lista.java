@@ -13,13 +13,17 @@ import javax.swing.JOptionPane;
 public class Lista {
 
     private Nodo inicio;
+    private Nodo fin;
+    private Nodo inicioCicular;
+    private Nodo finCircular;
 
     public Lista() {
         this.inicio = null;
+        this.fin = null;
+        this.inicioCicular = null;
+        this.finCircular = null;
     }
-    // esta es la prueba de que si sirve el github
-    // esta es la segunda prueba 8=D
-    // Este es un comentario xd h
+
     public boolean vacia() {
         if (inicio == null) {
             return true;
@@ -32,36 +36,36 @@ public class Lista {
         Cliente c = new Cliente();
         c.setNombre(JOptionPane.showInputDialog("Digite su nombre "));
         c.setApellidos(JOptionPane.showInputDialog("Digite sus 2 apellidos"));
-        c.setEdad(Byte.parseByte(JOptionPane.showInputDialog("Digite su edad")));
-        c.setDirección(JOptionPane.showInputDialog("Ingrese su ubicacion"));
-        c.setNumcontacto(Byte.parseByte(JOptionPane.showInputDialog("Ingrese su numero de contacto ")));
-        c.setEmail(JOptionPane.showInputDialog("Ingrese su direccion de correo electronico"));
-        c.setTipoPlan(JOptionPane.showInputDialog("Los tipos de plan disponibles son: Premiun,regular, simple" + "Ingrese su plan favorito:"));
+        c.setEdad(Integer.parseInt(JOptionPane.showInputDialog("Digite su edad")));
+        c.setNumcontacto((JOptionPane.showInputDialog("Ingrese su numero de contacto ")));
 
         Nodo nuevo = new Nodo();
         nuevo.setDato(c);
+
         if (vacia()) {
             inicio = nuevo;
-
-        } else if (c.getEdad() < inicio.getDato().getEdad()) {
-            nuevo.setSiguiente(nuevo);
-            inicio = nuevo;
-        } else if (inicio.getSiguiente() == null) {
-            inicio.setSiguiente(nuevo);
+            fin = nuevo;
 
         } else {
-            Nodo aux = inicio;
-            while (aux.getSiguiente() != null
-                    && aux.getSiguiente().getDato().getEdad() < c.getEdad()) {
-                aux = aux.getSiguiente();
-            }
-            nuevo.setSiguiente(aux.getSiguiente());
-            aux.setSiguiente(nuevo);
+            fin.setSiguiente(nuevo);
+            fin = nuevo;
         }
     }
 
     public void extraer() {
         if (!vacia()) {
+            Nodo nuevoCircular = new Nodo();
+            nuevoCircular = inicio;
+
+            if (vacia()) {
+                inicioCicular = nuevoCircular;
+                finCircular = nuevoCircular;
+            } else {
+                nuevoCircular.setSiguiente(inicioCicular);
+                inicioCicular = nuevoCircular;
+                fin.setSiguiente(inicioCicular);
+            }
+
             inicio = inicio.getSiguiente();
             JOptionPane.showMessageDialog(null, "Elemento extraído");
         } else {
@@ -74,8 +78,7 @@ public class Lista {
         if (!vacia()) {
             Nodo aux = inicio;
             while (aux != null) {
-                s += aux.getDato().getNombre() + " - " + aux.getDato().getApellidos() + " - " + aux.getDato().getEdad() + aux.getDato().getNumcontacto()
-                        + aux.getDato().getEmail() + aux.getDato().getDirección() + aux.getDato().getTipoPlan();
+                s += aux.getDato().getNombre() + " - " + aux.getDato().getApellidos() + " - " + aux.getDato().getEdad() + aux.getDato().getNumcontacto();
                 aux = aux.getSiguiente();
             }
             JOptionPane.showMessageDialog(null, "La lista contiene: \n" + s,
@@ -98,7 +101,6 @@ public class Lista {
 
                     JOptionPane.showMessageDialog(null, "\n Nodo con el dato " + actual.getDato().getNombre() + "encontrado \n");
                     JOptionPane.showMessageDialog(null, "Ingrese un nuevo dato para este nodo");
-                    actual.getDato().setTipoPlan(JOptionPane.showInputDialog("Digite el  nuevo plan de servicio"));
                     JOptionPane.showMessageDialog(null, "\n Nodo modificado\n");
                     encontrado = true;
                     return;
@@ -136,4 +138,22 @@ public class Lista {
             }
         }
     }
+
+    public String mostrarCircular() {
+        String s = "";
+        if (!vacia()) {
+            Nodo aux = inicioCicular;
+            while (aux != null) {
+                s += aux.getDato().getNombre() + " - " + aux.getDato().getApellidos() + " - " + aux.getDato().getEdad() + aux.getDato().getNumcontacto();
+                aux = aux.getSiguiente();
+            }
+            JOptionPane.showMessageDialog(null, "La lista contiene: \n" + s,
+                    "Contenido de la lista", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "No se puede mostrar, lista vacía \n" + s,
+                    "Lista Vacía", JOptionPane.ERROR_MESSAGE);
+        }
+        return s;
+    }
+
 }
