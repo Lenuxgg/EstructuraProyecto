@@ -17,9 +17,9 @@ public class Menu {
 
     public void Menu() {
         while (op != 7) {
-            op = Integer.parseInt(JOptionPane.showInputDialog(null, "Bienvenidos Fantasy Beauty Salón le saluda\n" + "Ingresa la opcion del Menu principal que desee realizar\n"
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "Bienvenidos Fantasy Beauty Salón les saluda\n" + "Ingresa la opcion del Menu principal que desee realizar\n"
                     + "1. Lista: Agendar\n"
-                    + "2. Lista: Mostrar "
+                    + "2. Lista: Mostrar \n"
                     + "3. Lista: Modificar\n"
                     + "4. Lista: Encontrar\n"
                     + "5. ---Atender--- \n"
@@ -28,21 +28,27 @@ public class Menu {
             switch (op) {
                 case 1:
                     l.agregar();
+                    Menu();
                     break;
                 case 2:
                     l.toString();
+                    Menu();
                     break;
                 case 3:
                     l.modificar();
+                    Menu();
                     break;
                 case 4:
                     l.encontrar();
+                    Menu();
                     break;
                 case 5:
                     l.extraer();
+                    Menu();
                     break;
                 case 6:
                     l.mostrarCircular();
+                    Menu();
                     break;
                 case 7:
                     System.exit(0);
