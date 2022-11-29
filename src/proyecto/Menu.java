@@ -24,7 +24,8 @@ public class Menu {
                     + "4. Lista: Encontrar\n"
                     + "5. ---Atender--- \n"
                     + "6. Atendidos: Mostrar \n"
-                    + "7. Salir\n", "Menu principal", JOptionPane.QUESTION_MESSAGE));
+                    + "7. Numero de clientes atendidos \n "
+                    + "8. Salir\n", "Menu principal", JOptionPane.QUESTION_MESSAGE));
             switch (op) {
                 case 1:
                     l.agregar();
@@ -51,6 +52,10 @@ public class Menu {
                     Menu();
                     break;
                 case 7:
+                    l.totalClientes();
+                    Menu();
+                    break;
+                case 8:
                     System.exit(0);
                     break;
                 default:
