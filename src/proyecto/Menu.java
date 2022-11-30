@@ -13,49 +13,39 @@ import javax.swing.JOptionPane;
 public class Menu {
 
     int op = 0;
-    Lista l = new Lista();
+    Cola l = new Cola();
+    ListaCircular lc = new ListaCircular();
 
     public void Menu() {
-        while (op != 7) {
+        while (op != 6) {
             op = Integer.parseInt(JOptionPane.showInputDialog(null, "Bienvenidos Fantasy Beauty Salón les saluda\n" + "Ingresa la opcion del Menu principal que desee realizar\n"
                     + "1. Lista: Agendar\n"
                     + "2. Lista: Mostrar \n"
-                    + "3. Lista: Modificar\n"
-                    + "4. Lista: Encontrar\n"
-                    + "5. ---Atender--- \n"
-                    + "6. Atendidos: Mostrar \n"
-                    + "7. Numero de clientes atendidos \n "
-                    + "8. Salir\n", "Menu principal", JOptionPane.QUESTION_MESSAGE));
+                    + "3. ---Atender--- \n"
+                    + "4. Atendidos: Mostrar \n"
+                    + "5. Numero de clientes atendidos \n "
+                    + "6. Salir\n", "Menu principal", JOptionPane.QUESTION_MESSAGE));
             switch (op) {
                 case 1:
-                    l.agregar();
+                    l.encolar();
                     Menu();
                     break;
                 case 2:
-                    l.toString();
+                    l.mostrar();
                     Menu();
                     break;
                 case 3:
-                    l.modificar();
+                    l.desencolar();
                     Menu();
                     break;
                 case 4:
-                    l.encontrar();
+                    lc.mostrarCircular();
                     Menu();
                     break;
                 case 5:
-                    l.extraer();
                     Menu();
                     break;
                 case 6:
-                    l.mostrarCircular();
-                    Menu();
-                    break;
-                case 7:
-                    l.totalClientes();
-                    Menu();
-                    break;
-                case 8:
                     System.exit(0);
                     break;
                 default:

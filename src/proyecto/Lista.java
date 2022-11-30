@@ -32,6 +32,13 @@ public class Lista {
             return false;
         }
     }
+        public boolean vaciaCircular() {
+        if (inicioCicular == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public void agregar() {
         Cliente c = new Cliente();
@@ -59,7 +66,7 @@ public class Lista {
             nuevoCircular = inicio;
              contador = contador + 1;
 
-            if (vacia()) {
+            if (vaciaCircular()) {
                 inicioCicular = nuevoCircular;
                 finCircular = nuevoCircular;
             } else {

@@ -13,6 +13,7 @@ public class Cliente {
     private String nombre, apellidos,
             numcontacto;
     private int edad;
+    
 
     public Cliente() {
         this.nombre = "";
