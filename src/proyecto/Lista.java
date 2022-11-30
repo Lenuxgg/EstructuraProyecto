@@ -144,7 +144,7 @@ public class Lista {
     public String mostrarCircular() {
         String s = "";
         if (!vacia()) {
-            Nodo aux = inicioCicular;
+            Nodo aux =inicioCicular ;
             while (aux != null) {
                 s += aux.getDato().getNombre() + " - " + aux.getDato().getApellidos() + " - " + aux.getDato().getEdad() + aux.getDato().getNumcontacto();
                 aux = aux.getSiguiente();
